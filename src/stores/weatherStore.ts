@@ -1,4 +1,5 @@
-import { Day, TimeBlock } from "@/lib/constants";
+import { Day, TimeBlock } from "@/lib/enums";
+import { Forecast } from "@/lib/types";
 import { create } from "zustand";
 
 interface WeatherStore {
@@ -10,6 +11,9 @@ interface WeatherStore {
 
   selectedTimeBlock: TimeBlock; // Time block selected by the user
   setSelectedTimeBlock: (timeBlock: TimeBlock) => void; // Time block setter
+
+  forecast: Forecast | null; // The weather forecast
+  setForecast: (date: Forecast) => void; // forecast setter
 }
 
 export const useWeatherStore = create<WeatherStore>((set) => ({
@@ -21,4 +25,7 @@ export const useWeatherStore = create<WeatherStore>((set) => ({
 
   selectedTimeBlock: TimeBlock.Morning,
   setSelectedTimeBlock: (selectedTimeBlock) => set({ selectedTimeBlock }),
+
+  forecast: null,
+  setForecast: (forecast) => set({ forecast }),
 }));
