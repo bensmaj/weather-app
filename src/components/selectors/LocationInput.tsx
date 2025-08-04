@@ -5,7 +5,7 @@ import { Input } from "../ui/input";
 import { useWeatherStore } from "@/stores/weatherStore";
 
 /**
- * This component allows users to select the city they want to get the weather for.
+ * This component allows users to select the city they want to get the weather forecast for.
  *
  */
 export function LocationInput() {

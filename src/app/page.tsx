@@ -12,11 +12,14 @@ import { ForecastDisplay } from "@/components/forecast/ForecastDisplay";
 export default function Home() {
   const location = useWeatherStore((state) => state.location); // The location the user entered
   const setForecast = useWeatherStore((state) => state.setForecast); // the forecast setter
+  const loading = useWeatherStore((state) => state.loading); // The location the user entered
+  const setLoading = useWeatherStore((state) => state.setLoading); // the loading state setter
 
   const getWeather = async () => {
+    setLoading(true);
     const data = await getForecast(location);
     if (data) setForecast(data);
-    console.log(data?.days[0].cloudcover);
+    setLoading(false);
   };
 
   return (
@@ -27,7 +30,9 @@ export default function Home() {
         <LocationInput />
         <DaySelector />
         <TimeSelector />
-        <Button onClick={getWeather}>Get Weather</Button>
+        <Button onClick={getWeather} disabled={loading}>
+          Get Weather
+        </Button>
       </div>
       <ForecastDisplay />
     </div>

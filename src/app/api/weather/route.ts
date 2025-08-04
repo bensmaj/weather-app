@@ -3,7 +3,6 @@ import { NextRequest, NextResponse } from "next/server";
 const WEATHER_BASE_URL: string =
   "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/"; // The base URL of the Visual Crossing Weather API
 
-// TODO: Somehow get the timezone from the location
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
   const location = searchParams.get("location"); // The location param entered by the user

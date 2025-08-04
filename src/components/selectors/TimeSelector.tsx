@@ -16,6 +16,9 @@ const TIME_BLOCKS = [
   { label: "Evening (5pm-9pm)", value: TimeBlock.Evening },
 ];
 
+/**
+ * This input selector allows the user to select the time block they want to get weather info for (used in the charts)
+ */
 export function TimeSelector() {
   const selectedTimeBlock = useWeatherStore((state) => state.selectedTimeBlock);
   const setSelectedTimeBlock = useWeatherStore(

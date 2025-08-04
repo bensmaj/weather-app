@@ -4,11 +4,16 @@ import { DayToNumber, SECONDS_TO_MS } from "@/lib/enums";
 import { useWeatherStore } from "@/stores/weatherStore";
 import { useMemo } from "react";
 import { ForecastCard } from "./ForecastCard";
+import { ForecastSkeleton } from "./ForecastSkeleton";
+import EmptyForecast from "./EmptyForecast";
 
+/**
+ * Handles whether to display the empty state, skeleton, or forecasts
+ */
 export function ForecastDisplay() {
   const forecast = useWeatherStore((state) => state.forecast);
   const selectedDay = useWeatherStore((state) => state.selectedDay);
-  const selectedTimeBlock = useWeatherStore((state) => state.selectedTimeBlock);
+  const loading = useWeatherStore((state) => state.loading);
 
   const dayForecasts = useMemo(() => {
     if (!forecast) return [];
@@ -26,11 +31,14 @@ export function ForecastDisplay() {
   }, [forecast, selectedDay]);
 
   return (
-    <div className="mt-4">
-      {!forecast ? (
-        <p>no forecast data</p>
-      ) : (
+    <div className="mt-4 flex justify-center">
+      {loading ? (
         <div className="flex md:flex-row flex-col gap-4 justify-center">
+          <ForecastSkeleton />
+          <ForecastSkeleton />
+        </div>
+      ) : forecast ? (
+        <div className="flex md:flex-row flex-col gap-4 justify-center w-full">
           {dayForecasts.map((forecastDay, index) => (
             <ForecastCard
               index={index}
@@ -39,6 +47,8 @@ export function ForecastDisplay() {
             />
           ))}
         </div>
+      ) : (
+        <EmptyForecast />
       )}
     </div>
   );

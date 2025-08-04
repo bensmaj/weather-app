@@ -19,6 +19,11 @@ interface ForecastChartProps {
   forecastDay: ForecastDay;
 }
 
+/**
+ * Displays a chart with the weather info for a given time block
+ *
+ * @param forecastDay - The day we want to get the chart data from
+ */
 export function ForecastChart({ forecastDay }: ForecastChartProps) {
   const selectedTimeBlock = useWeatherStore((state) => state.selectedTimeBlock);
 
@@ -29,13 +34,13 @@ export function ForecastChart({ forecastDay }: ForecastChartProps) {
       const date = new Date(hour.datetimeEpoch * SECONDS_TO_MS);
       const hourNum = date.getHours();
       if (selectedTimeBlock === TimeBlock.Morning) {
-        if (hourNum >= 8 && hourNum < 12) return hour;
+        if (hourNum >= 8 && hourNum <= 12) return hour;
       }
       if (selectedTimeBlock === TimeBlock.Afternoon) {
-        if (hourNum >= 12 && hourNum < 17) return hour;
+        if (hourNum >= 12 && hourNum <= 17) return hour;
       }
       if (selectedTimeBlock === TimeBlock.Evening) {
-        if (hourNum >= 17 && hourNum < 21) return hour;
+        if (hourNum >= 17 && hourNum <= 21) return hour;
       }
     });
   }, [forecastDay, selectedTimeBlock]);

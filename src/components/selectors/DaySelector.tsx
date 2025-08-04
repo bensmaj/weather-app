@@ -12,6 +12,9 @@ import {
 
 const DAYS: Day[] = Object.values(Day); // All the days of the week the user can select from
 
+/**
+ * Input selector that allows the user to choose which day of the week to get weather forecasts for
+ */
 export function DaySelector() {
   const selectedDay = useWeatherStore((state) => state.selectedDay);
   const setSelectedDay = useWeatherStore((state) => state.setSelectedDay);
