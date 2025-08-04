@@ -21,7 +21,7 @@ export function DaySelector() {
 
   return (
     <Select value={selectedDay} onValueChange={setSelectedDay}>
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger className="md:w-[180px] w-full">
         <SelectValue />
       </SelectTrigger>
       <SelectContent>

@@ -27,7 +27,7 @@ export function TimeSelector() {
 
   return (
     <Select value={selectedTimeBlock} onValueChange={setSelectedTimeBlock}>
-      <SelectTrigger className="w-[250px]">
+      <SelectTrigger className="md:w-[250px] w-full">
         <SelectValue />
       </SelectTrigger>
       <SelectContent>
