@@ -31,14 +31,14 @@ export function ForecastDisplay() {
   }, [forecast, selectedDay]);
 
   return (
-    <div className="mt-4 flex justify-center">
+    <div className="mt-4 flex justify-center w-full">
       {loading ? (
-        <div className="flex md:flex-row flex-col gap-4 justify-center">
+        <div className="flex md:flex-row flex-col gap-4 justify-center items-center w-full">
           <ForecastSkeleton />
           <ForecastSkeleton />
         </div>
       ) : forecast ? (
-        <div className="flex md:flex-row flex-col gap-4 justify-center w-full">
+        <div className="flex md:flex-row flex-col gap-4 justify-center items-center w-full">
           {dayForecasts.map((forecastDay, index) => (
             <ForecastCard
               index={index}

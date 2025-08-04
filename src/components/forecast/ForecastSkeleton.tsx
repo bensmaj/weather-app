@@ -24,7 +24,7 @@ export function ForecastSkeleton() {
           <Skeleton className="h-[15px] w-[100px]" />
         </div>
       </div>
-      <Skeleton className="h-[220px] w-[400px] mt-4" />
+      <Skeleton className="h-[220px] md:w-[400px] w-full mt-4" />
     </div>
   );
 }

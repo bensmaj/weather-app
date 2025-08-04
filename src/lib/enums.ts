@@ -20,6 +20,19 @@ export enum TimeBlock {
   Evening = "Evening",
 }
 
+/**
+ * Score for the weather day
+ */
+export enum ForecastScore {
+  Excellent = "Excellent",
+  Good = "Good",
+  Okay = "Okay",
+  Bad = "Bad",
+}
+
+/**
+ * Converts a day to the number used by the Date object
+ */
 export const DayToNumber: Record<Day, number> = {
   [Day.Sunday]: 0,
   [Day.Monday]: 1,

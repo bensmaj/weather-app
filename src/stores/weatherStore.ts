@@ -13,7 +13,7 @@ interface WeatherStore {
   setSelectedTimeBlock: (timeBlock: TimeBlock) => void; // Time block setter
 
   forecast: Forecast | null; // The weather forecast
-  setForecast: (date: Forecast) => void; // forecast setter
+  setForecast: (date: Forecast | null) => void; // forecast setter
 
   loading: boolean; // loading state while getting the forecast result from the API
   setLoading: (loading: boolean) => void; // loading setter
