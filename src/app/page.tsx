@@ -42,7 +42,7 @@ export default function Home() {
 
       <Header />
 
-      <div className="px-4">
+      <div className="p-4">
         <div className="flex md:flex-row flex-col mt-4 gap-3 justify-center ">
           <LocationInput />
           <DaySelector />
