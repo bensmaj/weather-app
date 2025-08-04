@@ -7,7 +7,6 @@ import { useWeatherStore } from "@/stores/weatherStore";
 /**
  * This component allows users to select the city they want to get the weather for.
  *
- * @returns JSX Component
  */
 export function LocationInput() {
   const location = useWeatherStore((state) => state.location); // The location the user entered

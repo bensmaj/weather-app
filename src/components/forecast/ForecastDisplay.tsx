@@ -30,9 +30,10 @@ export function ForecastDisplay() {
       {!forecast ? (
         <p>no forecast data</p>
       ) : (
-        <div className="flex md:flex-row flex-col gap-4">
-          {dayForecasts.map((forecastDay) => (
+        <div className="flex md:flex-row flex-col gap-4 justify-center">
+          {dayForecasts.map((forecastDay, index) => (
             <ForecastCard
+              index={index}
               forecastDay={forecastDay}
               key={forecastDay.datetime}
             />

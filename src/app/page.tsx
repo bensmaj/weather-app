@@ -1,13 +1,13 @@
 "use client";
 
 import { DaySelector } from "@/components/selectors/DaySelector";
-import { ForecastDisplay } from "@/components/ForecastDisplay";
 import Header from "@/components/Header";
 import { LocationInput } from "@/components/selectors/LocationInput";
 import { TimeSelector } from "@/components/selectors/TimeSelector";
 import { Button } from "@/components/ui/button";
 import { getForecast } from "@/lib/getWeather";
 import { useWeatherStore } from "@/stores/weatherStore";
+import { ForecastDisplay } from "@/components/forecast/ForecastDisplay";
 
 export default function Home() {
   const location = useWeatherStore((state) => state.location); // The location the user entered
