@@ -20,6 +20,7 @@ export function LocationInput() {
       />
       <Input
         value={location}
+        placeholder="Enter a location (ex: Burlington, Canada.)"
         onChange={(e) => setLocation(e.target.value)}
         className="w-md pl-8"
       />

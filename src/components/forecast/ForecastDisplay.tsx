@@ -6,6 +6,7 @@ import { useMemo } from "react";
 import { ForecastCard } from "./ForecastCard";
 import { ForecastSkeleton } from "./ForecastSkeleton";
 import EmptyForecast from "./EmptyForecast";
+import { ChartSelector } from "../selectors/ChartSelector";
 
 /**
  * Handles whether to display the empty state, skeleton, or forecasts
@@ -38,14 +39,16 @@ export function ForecastDisplay() {
           <ForecastSkeleton />
         </div>
       ) : forecast ? (
-        <div className="flex md:flex-row flex-col gap-4 justify-center items-center w-full">
-          {dayForecasts.map((forecastDay, index) => (
-            <ForecastCard
-              index={index}
-              forecastDay={forecastDay}
-              key={forecastDay.datetime}
-            />
-          ))}
+        <div className="w-full">
+          <div className="flex md:flex-row flex-col gap-4 justify-center items-center w-full">
+            {dayForecasts.map((forecastDay, index) => (
+              <ForecastCard
+                index={index}
+                forecastDay={forecastDay}
+                key={forecastDay.datetime}
+              />
+            ))}
+          </div>
         </div>
       ) : (
         <EmptyForecast />

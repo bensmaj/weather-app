@@ -1,4 +1,4 @@
-import { Day, TimeBlock } from "@/lib/enums";
+import { Day, ForecastChartOptions, TimeBlock } from "@/lib/enums";
 import { Forecast } from "@/lib/types";
 import { create } from "zustand";
 
@@ -20,7 +20,7 @@ interface WeatherStore {
 }
 
 export const useWeatherStore = create<WeatherStore>((set) => ({
-  location: "Toronto",
+  location: "Burlington, Canada",
   setLocation: (location) => set({ location }),
 
   selectedDay: Day.Friday,

@@ -1,4 +1,8 @@
-import { ForecastScore, SECONDS_TO_MS } from "@/lib/enums";
+import {
+  ForecastChartOptions,
+  ForecastScore,
+  SECONDS_TO_MS,
+} from "@/lib/enums";
 import { ForecastDay } from "@/lib/types";
 import { format } from "date-fns";
 import {
@@ -9,10 +13,11 @@ import {
   Sun,
   Wind,
 } from "lucide-react";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { ForecastChart } from "./ForecastChart";
 import { meetupScore } from "@/lib/weatherUtils";
 import { Badge } from "../ui/badge";
+import { ChartSelector } from "../selectors/ChartSelector";
 
 interface ForecastCardProps {
   forecastDay: ForecastDay;
@@ -70,6 +75,9 @@ export function ForecastCard({ forecastDay, index }: ForecastCardProps) {
     [ForecastScore.Bad]: "bg-red-500",
   };
 
+  const [selectedChartMetric, setSelectedChartMetric] =
+    useState<ForecastChartOptions>(ForecastChartOptions.Temperature);
+
   return (
     <div className="border rounded-lg p-4 md:w-[450px] w-full shadow ">
       <h3 className="text-lg font-bold text-center">
@@ -96,7 +104,14 @@ export function ForecastCard({ forecastDay, index }: ForecastCardProps) {
           </p>
         </div>
       </div>
-      <ForecastChart forecastDay={forecastDay} />
+      <ForecastChart
+        forecastDay={forecastDay}
+        chartMetric={selectedChartMetric}
+      />
+      <ChartSelector
+        selected={selectedChartMetric}
+        onChange={setSelectedChartMetric}
+      />
     </div>
   );
 }

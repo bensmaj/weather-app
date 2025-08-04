@@ -10,6 +10,7 @@ import { useWeatherStore } from "@/stores/weatherStore";
 import { ForecastDisplay } from "@/components/forecast/ForecastDisplay";
 import toast, { Toaster } from "react-hot-toast";
 
+// todo: show api response location name, arrows (step back forward by week), readme
 export default function Home() {
   const location = useWeatherStore((state) => state.location); // The location the user entered
   const setForecast = useWeatherStore((state) => state.setForecast); // the forecast setter
@@ -20,6 +21,11 @@ export default function Home() {
    * Get the weather forecast function
    */
   const getWeather = async () => {
+    if (!location || location.trim() === "") {
+      toast.error("Please enter a location before continuing.");
+      return;
+    }
+
     setLoading(true);
     const data = await getForecast(location);
     if (data) setForecast(data);

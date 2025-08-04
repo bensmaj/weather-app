@@ -31,6 +31,15 @@ export enum ForecastScore {
 }
 
 /**
+ * Represents the different forecast chart options
+ */
+export enum ForecastChartOptions {
+  Temperature = "Temperature",
+  RainProbability = "Rain Probability",
+  WindSpeed = "Wind Speed",
+}
+
+/**
  * Converts a day to the number used by the Date object
  */
 export const DayToNumber: Record<Day, number> = {
