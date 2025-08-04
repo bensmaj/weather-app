@@ -1,8 +1,9 @@
 import {
+  BadgeVariantMap,
   ForecastChartOptions,
   ForecastScore,
   SECONDS_TO_MS,
-} from "@/lib/enums";
+} from "@/lib/constants";
 import { ForecastDay } from "@/lib/types";
 import { format } from "date-fns";
 import {
@@ -30,6 +31,16 @@ interface ForecastCardProps {
  * @returns - A card displaying the forecast for a given day
  */
 export function ForecastCard({ forecastDay, index }: ForecastCardProps) {
+  const [selectedChartMetric, setSelectedChartMetric] =
+    useState<ForecastChartOptions>(ForecastChartOptions.Temperature);
+
+  const formattedDate = useMemo(
+    () => format(forecastDay.datetimeEpoch * SECONDS_TO_MS, "EEEE MMM d"),
+    [forecastDay.datetimeEpoch]
+  );
+
+  const score = useMemo(() => meetupScore(forecastDay), [forecastDay]); // The score of the day
+
   /**
    * This function is used to determine which icon to display to the user, depending on the weather conditions
    *
@@ -61,30 +72,13 @@ export function ForecastCard({ forecastDay, index }: ForecastCardProps) {
     }
   };
 
-  const formattedDate = useMemo(
-    () => format(forecastDay.datetimeEpoch * SECONDS_TO_MS, "EEEE MMM d"),
-    [forecastDay.datetimeEpoch]
-  );
-
-  const score = useMemo(() => meetupScore(forecastDay), [forecastDay]);
-
-  const badgeVariantMap: Record<ForecastScore, string> = {
-    [ForecastScore.Excellent]: "bg-green-500",
-    [ForecastScore.Good]: "bg-blue-500",
-    [ForecastScore.Okay]: "bg-yellow-500",
-    [ForecastScore.Bad]: "bg-red-500",
-  };
-
-  const [selectedChartMetric, setSelectedChartMetric] =
-    useState<ForecastChartOptions>(ForecastChartOptions.Temperature);
-
   return (
     <div className="border rounded-lg p-4 md:w-[450px] w-full shadow ">
       <h3 className="text-lg font-bold text-center">
         {index === 0 ? "This" : "Next"} {formattedDate}
       </h3>
       <div className="flex justify-center mt-1">
-        <Badge className={badgeVariantMap[score]}>{score} day</Badge>
+        <Badge className={BadgeVariantMap[score]}>{score} day</Badge>
       </div>
       <div>{getWeatherIcon()}</div>
       <div>

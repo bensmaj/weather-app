@@ -1,6 +1,6 @@
 "use client";
 
-import { TimeBlock } from "@/lib/enums";
+import { TimeBlock } from "@/lib/constants";
 import { useWeatherStore } from "@/stores/weatherStore";
 import {
   Select,

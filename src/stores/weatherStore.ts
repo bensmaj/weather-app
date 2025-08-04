@@ -1,4 +1,4 @@
-import { Day, ForecastChartOptions, TimeBlock } from "@/lib/enums";
+import { Day, ForecastChartOptions, TimeBlock } from "@/lib/constants";
 import { Forecast } from "@/lib/types";
 import { create } from "zustand";
 

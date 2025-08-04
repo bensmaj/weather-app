@@ -1,6 +1,10 @@
 "use client";
 
-import { ForecastChartOptions, SECONDS_TO_MS, TimeBlock } from "@/lib/enums";
+import {
+  ForecastChartOptions,
+  SECONDS_TO_MS,
+  TimeBlock,
+} from "@/lib/constants";
 import { ForecastDay } from "@/lib/types";
 import { useWeatherStore } from "@/stores/weatherStore";
 import { format } from "date-fns";
@@ -50,6 +54,7 @@ export function ForecastChart({
     });
   }, [forecastDay, selectedTimeBlock]);
 
+  // The data key we want to show chart data for
   const dataKey = useMemo(() => {
     switch (chartMetric) {
       case ForecastChartOptions.RainProbability:
@@ -62,6 +67,7 @@ export function ForecastChart({
     }
   }, [chartMetric]);
 
+  // color of the chart line, based on which filter is selected
   const strokeColor = useMemo(() => {
     switch (chartMetric) {
       case ForecastChartOptions.Temperature:

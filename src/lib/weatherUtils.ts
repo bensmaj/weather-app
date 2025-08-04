@@ -1,4 +1,4 @@
-import { ForecastScore } from "./enums";
+import { ForecastScore } from "./constants";
 import { Forecast, ForecastDay } from "./types";
 
 /**

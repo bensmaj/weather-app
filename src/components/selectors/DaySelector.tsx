@@ -1,6 +1,6 @@
 "use client";
 
-import { Day } from "@/lib/enums";
+import { Day } from "@/lib/constants";
 import { useWeatherStore } from "@/stores/weatherStore";
 import {
   Select,

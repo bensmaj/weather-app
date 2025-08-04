@@ -1,6 +1,6 @@
 "use client";
 
-import { DayToNumber, SECONDS_TO_MS } from "@/lib/enums";
+import { DayToNumber, SECONDS_TO_MS } from "@/lib/constants";
 import { useWeatherStore } from "@/stores/weatherStore";
 import { useMemo } from "react";
 import { ForecastCard } from "./ForecastCard";

@@ -1,6 +1,6 @@
 "use client";
 
-import { ForecastChartOptions } from "@/lib/enums";
+import { ForecastChartOptions } from "@/lib/constants";
 import {
   Select,
   SelectContent,

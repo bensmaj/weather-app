@@ -52,4 +52,14 @@ export const DayToNumber: Record<Day, number> = {
   [Day.Saturday]: 6,
 };
 
+/**
+ * Converts a forecast score to a tailwind colour
+ */
+export const BadgeVariantMap: Record<ForecastScore, string> = {
+  [ForecastScore.Excellent]: "bg-green-500",
+  [ForecastScore.Good]: "bg-blue-500",
+  [ForecastScore.Okay]: "bg-yellow-500",
+  [ForecastScore.Bad]: "bg-red-500",
+};
+
 export const SECONDS_TO_MS = 1000; // Used to convert seconds to ms (for epoch time)
