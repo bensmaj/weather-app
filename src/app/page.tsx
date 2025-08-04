@@ -1,9 +1,10 @@
 "use client";
 
-import { DaySelector } from "@/components/DaySelector";
+import { DaySelector } from "@/components/selectors/DaySelector";
+import { ForecastDisplay } from "@/components/ForecastDisplay";
 import Header from "@/components/Header";
-import { LocationInput } from "@/components/LocationInput";
-import { TimeSelector } from "@/components/TimeSelector";
+import { LocationInput } from "@/components/selectors/LocationInput";
+import { TimeSelector } from "@/components/selectors/TimeSelector";
 import { Button } from "@/components/ui/button";
 import { getForecast } from "@/lib/getWeather";
 import { useWeatherStore } from "@/stores/weatherStore";
@@ -22,13 +23,13 @@ export default function Home() {
     <div className="font-sans">
       <Header />
 
-      <div className="flex">
+      <div className="flex md:flex-row flex-col mt-4 gap-3 justify-center">
         <LocationInput />
         <DaySelector />
         <TimeSelector />
         <Button onClick={getWeather}>Get Weather</Button>
-        {location}
       </div>
+      <ForecastDisplay />
     </div>
   );
 }

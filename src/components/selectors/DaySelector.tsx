@@ -8,7 +8,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "./ui/select";
+} from "../ui/select";
 
 const DAYS: Day[] = Object.values(Day); // All the days of the week the user can select from
 

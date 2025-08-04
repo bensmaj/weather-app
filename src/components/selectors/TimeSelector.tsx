@@ -8,7 +8,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "./ui/select";
+} from "../ui/select";
 
 const TIME_BLOCKS = [
   { label: "Morning (8am-12pm)", value: TimeBlock.Morning },

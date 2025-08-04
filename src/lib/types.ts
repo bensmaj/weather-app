@@ -6,6 +6,7 @@ export interface Forecast {
 export interface ForecastDay {
   datetime: string; // the date (format: YYYY-MM-DD)
   datetimeEpoch: number; // datetime in epoch format
+  temp: number; // temperature at the location (mean) for the day (in fahrenheit)
   tempmax: number; // the highest the temp will go (in fahrenheit)
   tempmin: number; // the lowest the temp will go (in fahrenheit)
   humidity: number; // relative humidity in %
@@ -20,7 +21,7 @@ export interface ForecastDay {
 export interface ForecastHours {
   datetime: string; // the time (format: HH:mm:ss)
   datetimeEpoch: number; // the datetime in epoch format
-  temp: number; // temperature at the location. Daily values are average values (mean) for the day. (in fahrenheit)
+  temp: number; // temperature at the location (in fahrenheit)
   windspeed: number; // the wind speed (in mph)
   precip: number; // the amount of liquid precipitation that fell or is predicted to fall in the period.
   precipprob: number; // the likelihood of measurable precipitation ranging from 0% to 100%
