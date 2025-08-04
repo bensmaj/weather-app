@@ -1,8 +1,16 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Weatherly by Ben Smajlovic
 
-## Getting Started
+Hello to the team at Novig! 👋
 
-First, run the development server:
+Thanks so much for the opportunity! This is my submission for the weather app concept. I'm excited to share it with you and look forward to your feedback.
+
+---
+
+## Running weatherly locally
+
+1. First, make sure to run an `npm install` to install all the required dependencies.
+2. Create a ".env.local" file. Add a `VISUAL_CROSSING_API_KEY=your_api_key`. Sign up for a Visual Crossing API key [here](https://www.visualcrossing.com/weather-api/).
+3. Start up the development server by using one of the following commands below:
 
 ```bash
 npm run dev
@@ -16,21 +24,17 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Weatherly Public
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+You can access Weatherly without running it locally by visiting [this link](https://weathererly-app.vercel.app/).
 
-## Learn More
+## Design Choices
 
-To learn more about Next.js, take a look at the following resources:
+I chose Next.js because it’s a modern, full-stack React framework with tools that smoothen the development process. One key reason was the ability to use API routes to securely proxy requests to the Visual Crossing weather API, keeping the API key hidden from the client.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Weatherly is also built with:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- ShadCN/UI + Tailwind CSS for styling and components. _Note: All the files in components/ui are components created by ShadCN._
+- Zustand for state management
+- Recharts for charts
+- React Hot Toast for toasts
